@@ -1,0 +1,73 @@
+.header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: $color-dark-grey;
+    color: $color-default-white;
+    z-index: 10000;
+
+    a {
+        color: $color-default-white;
+
+        @include hover-focus {
+            color: $color-gold;
+        }
+    }
+
+    &.open {
+        .hamb {
+            background-image: url("../img/svg/icon-close.svg");
+        }
+
+        .nav {
+            opacity: 1;
+            pointer-events: all;
+        }
+    }
+}
+
+.nav {
+    display: flex;
+    text-align: center;
+    margin-left: auto;
+    font-size: 16px;
+    transition: opacity $trans-default;
+
+    @include vp-1023 {
+        opacity: 0;
+        pointer-events: none;
+        padding-top: 50px;
+        flex-direction: column;
+        position: fixed;
+        left: 0;
+        top: 97px;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: $color-dark-grey;
+        text-align: center;
+
+        font-size: 25px;
+    }
+}
+
+.hamb {
+    display: none;
+    width: 116px;
+    height: 17px;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: left 0 center;
+    background-image: url("../img/svg/icon-hamb.svg");
+    flex-shrink: 0;
+
+    @include vp-1023 {
+        display: block;
+    }
+}
